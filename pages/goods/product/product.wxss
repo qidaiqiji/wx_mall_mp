@@ -1,0 +1,819 @@
+/* pages/activeDirectory/ledPassword/ledPassword.wxss */
+
+page {
+  background: #f3f3f3;
+}
+
+.priceWrap {
+  background: rgb(255, 255, 255);
+  margin-bottom: 20rpx;
+}
+
+.priceWrap_ {
+  width: 750rpx;
+  background: rgba(255, 255, 255, 1);
+  display: flex;
+  justify-content: space-between;
+  padding-left: 24rpx;
+  padding-right: 30rpx;
+  padding-top: 24rpx;
+}
+
+.price {
+  display: flex;
+  align-items: baseline;
+}
+
+.price>view:nth-child(1) {
+  height: 48rpx;
+  font-size: 48rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255, 51, 102, 1);
+  line-height: 48rpx;
+
+}
+
+.price>view:nth-child(1)::before {
+  content: '￥';
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255, 51, 102, 1);
+}
+
+.price>view:nth-child(2) {
+  height: 24rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255, 51, 102, 1);
+  line-height: 24rpx;
+}
+.priceDiscount{
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 16rpx;
+}
+.discount_ {
+  height: 32rpx;
+  border: 1rpx solid rgba(255, 150, 0, 1);
+  border-radius: 4rpx;
+  font-size: 20rpx;
+  font-family: PingFangSC-Light;
+  font-weight: 300;
+  color: rgba(255, 150, 0, 1);
+  line-height: 20rpx;
+  padding: 6rpx 4rpx;
+  margin-left: 12rpx;
+}
+
+.colorRed {
+  color: #f36 !important;
+}
+
+.colorWhitr {
+  color: #FFFFFF !important;
+  background: #DE0E0E !important;
+  border: 1rpx solid rgba(255, 255, 255, 1) !important;
+}
+
+.colorBlue {
+  color: #35A4FF !important;
+  background: rgb(255, 255, 255) !important;
+}
+
+.colorGreen {
+  color: #FFFFFF !important;
+  background: #009E76 !important;
+  border: 1rpx solid rgba(255, 255, 255, 1) !important;
+}
+
+.marketPrice {
+  height: 22rpx;
+  font-size: 22rpx;
+  font-family: PingFangSC-Light;
+  font-weight: 300;
+  color: rgba(136, 150, 150, 1);
+  line-height: 22rpx;
+}
+
+.shopName {
+  width: 750rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(47, 58, 64, 1);
+  line-height: 48rpx;
+  padding-left: 24rpx;
+  padding-right: 48rpx;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-top: 14rpx;
+}
+
+.shopName_ {
+  width: 548rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(47, 58, 64, 1);
+  line-height: 48rpx;
+  padding-left: 24rpx;
+  padding-right: 48rpx;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  margin-top: 1rpx;
+}
+
+.addShare {
+  display: flex;
+  height: 64rpx;
+}
+
+.addImg {
+  height: 20rpx;
+  font-size: 20rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(136, 150, 150, 1);
+  line-height: 22rpx;
+  padding-right: 20rpx;
+}
+
+.shareImg {
+  background: rgb(255, 255, 255);
+  font-size: 20rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgb(136, 140, 150);
+  line-height: 22rpx;
+  padding: 0rpx;
+  margin: 0rpx;
+}
+
+.addImg>image {
+  width: 44rpx;
+  height: 44rpx;
+}
+
+.shareImg>image {
+  width: 44rpx;
+  height: 44rpx;
+}
+
+.inventoryWrap {
+  width: 750rpx;
+  height: 54rpx;
+  background: rgba(255, 255, 255, 1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 24rpx;
+  padding-right: 30rpx;
+}
+
+.inventoryWrap>view {
+  height: 24rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Light;
+  font-weight: 300;
+  color: rgba(136, 150, 150, 1);
+  line-height: 24rpx;
+}
+
+.productSend {
+  margin-bottom: 20rpx;
+  background: #fef1f8;
+}
+
+.shopRankingWrap {
+  width: 750rpx;
+  height: 138rpx;
+  background: rgba(255, 255, 255, 1);
+  padding-left: 24rpx;
+  padding-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.shopRankingNumber_{
+  height: 98rpx;
+  line-height: 98rpx;
+  font-size: 28rpx;
+  color: #f36;
+  font-weight: 600 !important;
+  font-family: PingFangSC-Medium !important;
+  padding-left: 8rpx;
+}
+.shopRanking {
+  width: 702rpx;
+  height: 98rpx;
+  background-repeat: no-repeat;
+  background-size: 702rpx 98rpx;
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255, 51, 102, 1);
+  line-height: 98rpx;
+  padding-left: 26rpx;
+}
+
+.centralAD {
+  width: 750rpx;
+  text-align: center;
+  padding-bottom: 20rpx;
+}
+
+.centralAD>image {
+  width: 704rpx;
+  height: 129rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.txtInfoWrap {
+  margin-bottom: 20rpx;
+}
+
+.goodsDescImg {
+  width: 750rpx;
+}
+
+.goodsDescWrap {
+  margin-bottom: 20rpx;
+}
+
+.blemWrap {
+  width: 750rpx;
+  padding-left: 24rpx;
+  background: rgba(255, 255, 255, 1);
+  overflow: hidden;
+}
+
+.blemTitle {
+  width: 750rpx;
+  height: 78rpx;
+  background: rgba(255, 255, 255, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(47, 58, 64, 1);
+  line-height: 78rpx;
+}
+
+.colorPreheating {
+  color: #009E76 !important;
+}
+
+.blemOne {
+  margin-top: 19rpx;
+  margin-left: 27rpx;
+  font-size: 26rpx;
+  font-family: PingFang-SC-regular;
+  font-weight: 400;
+  color: #2f3a40;
+  line-height: 42rpx;
+}
+
+.blemTwo {
+  margin-top: 4rpx;
+  margin-left: 27rpx;
+  margin-right: 27rpx;
+  font-size: 26rpx;
+  font-family: PingFang-SC-regular;
+  font-weight: 400;
+  color: #889696;
+  line-height: 42rpx;
+  padding-bottom: 28rpx;
+}
+
+.product_adviceList {
+  width: 750rpx;
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+  padding-top: 20rpx;
+}
+
+.produceBottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.childMark {
+  position: fixed;
+  left: 0rpx;
+  top: 0rpx;
+  right: 0rpx;
+  bottom: 0rpx;
+  z-index: 24;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.childSpellMoreWrap {
+  width: 600rpx;
+  height: 748rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 20rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 97;
+  transform: translate(-50%, -50%);
+}
+
+.childSpellMoretitle {
+  width: 100%;
+  height: 100rpx;
+  background: rgba(255, 255, 255, 1);
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(103, 113, 114, 1);
+  text-align: center;
+  line-height: 100rpx;
+}
+
+.childSpellMoreConter {
+  width: 100%;
+  height: 560rpx;
+  background: rgba(255, 255, 255, 1);
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(103, 113, 114, 1);
+}
+
+.childSpellMoreConfirm {
+  width: 100%;
+  height: 88rpx;
+  background: rgba(255, 255, 255, 1);
+  text-align: center;
+  line-height: 88rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255, 51, 102, 1);
+  border-top: 1rpx solid rgba(229, 229, 229, 1);
+}
+
+.activityImage {
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.custom {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 45px;
+  background: #2c5cff;
+  z-index: 999;
+}
+
+.empty_custom_ {
+  width: 100%;
+}
+
+.custom text {
+  color: #fff;
+  font-size: 34rpx;
+  font-weight: 500;
+  max-width: 280rpx;
+}
+
+.savigationTxt>view:nth-child(1) {
+  margin-left: 116rpx;
+  margin-right: 120rpx;
+}
+
+.savigationTxt {
+  width: 64rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(47, 58, 64, 1);
+  line-height: 30rpx;
+  padding: 22rpx 0rpx;
+  display: flex;
+}
+
+.savigationTxt_ {
+  width: 64rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255, 51, 102, 1);
+  line-height: 30rpx;
+  padding: 18rpx 0rpx;
+}
+
+.savigationBorder_ {
+  width: 60rpx;
+  height: 4rpx;
+  background: rgba(255, 51, 102, 1);
+  border-radius: 2rpx;
+}
+
+.savigationBorder {
+  width: 60rpx;
+  height: 4rpx;
+  background: rgb(255, 255, 255);
+  border-radius: 2rpx;
+}
+
+.pro_brand_advertising {
+  padding-top: 20rpx;
+  text-align: center;
+  padding-bottom: 20rpx;
+  background: white;
+}
+
+.expectedArrivalTimeText {
+  width: 750rpx;
+  height: 22rpx;
+  font-size: 22rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(178, 178, 178, 1);
+  line-height: 22rpx;
+  padding-left: 24rpx;
+  margin-bottom: 10rpx;
+}
+
+.pro_brand_advertising>image {
+  width: 704rpx;
+  height: 129rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+.empty_custom_back{
+  background: rgba(128, 128, 128, 1) !important;
+  border: 1rpx solid rgba(128, 128, 128, 1)  !important;
+}
+.empty_custom {
+  width: 90rpx;
+  height: 64rpx;
+  border: 1rpx solid rgba(229, 229, 229, 1);
+  background: rgba(255, 255, 255,0.7);
+  border-radius: 32rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigateBackgroung {
+  background: rgba(0, 0, 0, 1);
+}
+
+.isSavigationStyle_ {
+  width: 100%;
+  position: fixed;
+  left: 0rpx;
+  top: 0rpx;
+  z-index: 3;
+  background: rgba(254, 254, 254, 0);
+  overflow: hidden;
+}
+
+.productBorder {
+  width: 100%;
+  height: 1rpx;
+  background: #e5e5e5;
+}
+
+.isNavigateHide {
+  background: rgba(254, 254, 254, 1);
+}
+
+.isSavigationStyle {
+  width: 100%;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  padding-left: 24rpx;
+}
+
+.viewLeft {
+  width: 44rpx;
+  height: 44rpx;
+}
+
+.vip {
+  color: rgba(250, 234, 196, 1) !important;
+}
+
+.save_price_vip {
+  margin-top: 8rpx;
+  font-size: 22rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(250, 234, 196, 1);
+  line-height: 22rpx;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4rpx;
+  padding: 6rpx 10rpx;
+}
+
+.activityWrap>view:nth-child(1) {
+  width: 750rpx;
+  height: 108rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20rpx;
+}
+
+.activityPrice {
+  display: flex;
+  align-items: center;
+}
+
+.activityprice_ {
+  height: 48rpx;
+  line-height: 48rpx;
+  display: flex;
+  align-items: baseline;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  padding-right: 12rpx;
+}
+
+.activityPriceRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 24rpx;
+}
+
+.activityData {
+  height: 22rpx;
+  font-size: 22rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(250, 40, 84, 1);
+  line-height: 22rpx;
+}
+
+.flashDate {
+  font-size: 20rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(250, 40, 84, 1);
+  margin-bottom: 10rpx;
+}
+
+.priceInt {
+  font-size: 48rpx;
+}
+
+.priceInt::before {
+  content: '￥';
+  font-size: 30rpx;
+}
+
+.discount {
+  height: 22rpx;
+  font-size: 22rpx;
+  color: rgba(237, 241, 244, 1);
+  line-height: 22rpx;
+}
+
+.save_price {
+ padding: 4rpx 8rpx;
+  background: rgba(249, 249, 249, 1);
+  border-radius: 4rpx;
+  line-height: 28rpx;
+  text-align: center;
+  font-size: 22rpx;
+  margin-top: 8rpx;
+}
+
+.activityImg {
+  width: 750rpx;
+  height: 108rpx;
+}
+
+.activityTitleWrap {
+  width: 750rpx;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 24rpx;
+  margin-top: 28rpx;
+}
+
+.activityTitleRight {
+  padding-left: 36rpx;
+}
+
+.buySome_ {
+  width: 552rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Light;
+  font-weight: 300;
+  color: #FF3366;
+  line-height: 36rpx;
+  padding-left: 24rpx;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-top: 8rpx;
+  margin-bottom: 26rpx;
+}
+
+.pintuanbuySome_ {
+  width: 552rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Light;
+  font-weight: 300;
+  color: rgba(255, 51, 102, 1);
+  line-height: 36rpx;
+  padding-left: 24rpx;
+  margin-top: 8rpx;
+  margin-bottom: 32rpx;
+}
+
+.priceRules {
+  width: 750rpx;
+  height: 92rpx;
+  background: rgba(254, 241, 248, 1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rpx 24rpx;
+}
+
+.priceCoupon {
+  width: 750rpx;
+  height: 88rpx;
+  background: rgba(255, 255, 255, 1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rpx 24rpx;
+}
+
+.activityInfo {
+  width: 750rpx;
+  background: rgba(255, 255, 255, 1);
+  display: flex;
+  justify-content: space-between;
+  padding: 30rpx 24rpx 0rpx 24rpx;
+}
+
+.couponTxt {
+  display: flex;
+  align-items: center;
+}
+.couponTxt_{
+  display: flex;
+  /* align-items: center;
+  padding-bottom: 30rpx; */
+}
+.couponTxt_>view:nth-child(1) {
+  height: 24rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(136, 150, 150, 1);
+  line-height: 24rpx;
+  padding-right: 34rpx;
+  position: relative;
+  left: 0rpx;
+  top: 0rpx;
+}
+.couponTxt>view:nth-child(1) {
+  height: 24rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(136, 150, 150, 1);
+  line-height: 24rpx;
+  padding-right: 34rpx;
+  position: relative;
+  left: 0rpx;
+  top: 0rpx;
+}
+.couponWrap{
+  height: 38rpx;
+  display: flex;
+ margin-right: 16rpx;
+}
+.couponTitle{
+  position: relative;
+  left: 0rpx;
+  top: 0rpx;
+}
+.couponWrap >view{
+  height: 38rpx;
+   font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255, 51, 102, 1) !important;
+  line-height: 34rpx;
+  position: relative;
+  left: 0rpx;
+  top: 0rpx;
+  z-index: 2;
+  background: rgba(255, 226, 233, 1);
+  padding: 0rpx 12rpx;
+  border-bottom: 1rpx solid rgba(255, 226, 233, 1);
+  border-top: 1rpx solid rgba(255, 226, 233, 1);
+}
+.couponImgOne{
+  width: 14rpx;
+  height: 38rpx;
+  position: relative;
+  left: 8rpx;
+  top: 0rpx;
+  z-index: 1;
+}
+.couponImgTwo{
+  width: 14rpx;
+  height: 38rpx;
+  position: relative;
+  left: -8rpx;
+  top: 0rpx;
+  z-index: 1;
+}
+.couponImg {
+  width: 558rpx;
+  height: 34rpx;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.activityRules {
+  margin-bottom: 20rpx;
+}
+
+.ViewRules {
+  display: flex;
+}
+
+.ViewRules>view {
+  height: 24rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(47, 58, 64, 1);
+  line-height: 24rpx;
+  position: relative;
+  left: 0rpx;
+  top: 8rpx;
+}
+
+.activityList {
+  display: flex;
+  align-items: center;
+  /* padding-bottom: 30rpx; */
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(47, 58, 64, 1);
+  line-height: 26rpx;
+  margin-bottom: 30rpx;
+}
+
+.activityList>image {
+  margin-right: 14rpx;
+
+}
+
+.spellWrap {
+  width: 750rpx;
+  background: #ffff;
+  margin-bottom: 20rpx;
+}
+
+.spellMore {
+  width: 750rpx;
+  height: 54rpx;
+  background: rgba(255, 255, 255, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(136, 150, 150, 1);
+  line-height: 27rpx;
+}

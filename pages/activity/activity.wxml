@@ -1,0 +1,148 @@
+<!-- pages/activity/activity.wxml -->
+<view class="wrap">
+    <view class="headerWrap">
+        <view class="backgroundImage" catchtap='handleLinkJump' data-link="{{bannerLink}}">
+            <image src="{{banner}}" mode='widthFix' />
+            <view class="leftHerder {{indextop?'pro_swipe_top_two':''}}" wx:if="{{isShowTrade}}">
+                <image class="leftHerderImg" src="/images/img_portrait.png" />
+                <view class="leftHerderTxt BeyondHidden">{{arr}}</view>
+            </view>
+        </view>
+        <view class="guideText" catchtap='handleGuideText' wx:if="{{guideText}}">
+            {{guideText}} >
+        </view>
+    </view>
+    <!-- 商品推荐轮播图 -->
+    <view style="{{bgType==1?bgImgType1:bgImgType2}}">
+        <view class="activitySwiper" wx:if="{{adviceGoods.goodsList.length>0}}">
+            <swiper class="card-swiper" autoplay="{{true}}" circular="true" interval="5000" duration="500">
+                <swiper-item class="swiperItem{{index%4}}" wx:for="{{adviceGoods.goodsList}}" wx:key="{{index}}">
+                    <view class="swiperItemImg{{index%4}} swiperItemImg animate-bounce-down{{index%4}}" data-goodsId="{{item.goodsInfo.goodsId}}" catchtap="goShop">
+                        <image class="swiperItemImg_" src="{{item.goodsInfo.thumb}}" />
+                        <view class="activityPricrWrap">
+                            <view class="activityPricr">
+                                <view class="activityNumInt">{{item.objectPrice.numInt}}</view>
+                                <view class="activityDecimal">.{{item.objectPrice.decimal}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </swiper-item>
+            </swiper>
+        </view>
+        <block wx:for="{{goodsAdList}}" wx:key="{{index}}">
+            <!-- 商品列表 -->
+            <view id="{{item.linkId}}" class="activeNav{{index}} wrapBox">
+                <view wx:if="{{item.type==1}}" class="youhui_list {{item.styleType==1?'two_col':'three_col'}}" style=" background: {{item.bgColor}};">
+                    <c-titleContent data="{{item}}" wx:if="{{item.styleType==1}}"></c-titleContent>
+                    <block wx:for="{{item.goodsList}}" wx:for-item='goodsList' wx:for-index='listIndex' wx:key="{{listIndex}}" wx:if="{{item.styleType==1}}">
+                        <goodlsListTwo_col class="list" goodsList="{{goodsList}}" bindevokeAddCart='onevokeAddCart'></goodlsListTwo_col>
+                    </block>
+                    <view wx:if="{{item.styleType==2}}">
+                        <c-activityList dataItem="{{item}}" type="activity"></c-activityList>
+                    </view>
+                </view>
+                <!-- 秒杀 -->
+                <view class="secondsWrap" wx:if="{{item.type==4}}" style=" background: {{item.bgColor}};">
+                    <c-titleContent data="{{item}}" flashSaleDate="{{flashSaleDate}}"></c-titleContent>
+                    <view class="secondsShopWrap">
+                        <block wx:for="{{item.goodsList}}" wx:key="{{secondindex}}" wx:for-item="secondItem" wx:for-index="secondindex">
+                            <view class="secondsWillRob" wx:if="{{secondindex==0}}" data-goodsId="{{secondItem.goodsInfo.goodsId}}" catchtap="goShop">
+                                <view class="willBackground" style="background-image: url({{will_rob_background}})">
+                                    <image src="{{will_rob}}" />
+                                </view>
+                                <view class="secondsRight">
+                                    <image class="secondsThum" src="{{secondItem.goodsInfo.thumb}}" />
+                                    <view class="sell_out" wx:if='{{secondItem.goodsInfo.stock < secondItem.goodsInfo.startNum}}'>
+                                        <image class="" src="{{soldOutImg}}" />
+                                    </view>
+                                    <view class="secondsTxt">
+                                        <view class="secondsName">
+                                            {{secondItem.goodsInfo.goodsName}}
+                                        </view>
+                                        <view class="secondsBuySomeRmb">
+                                            {{secondItem.goodsInfo.desc}}
+                                        </view>
+                                        <view class="secondsPriceWrap">
+                                            <view>
+                                                <view class="secondPrice">
+                                                    {{secondItem.goodsInfo.goodsPrice}}
+                                                </view>
+                                                <view class="secondPrices">
+                                                    ￥{{secondItem.goodsInfo.marketPrice}}
+                                                </view>
+                                            </view>
+                                            <view class="secondsText">秒</view>
+                                        </view>
+                                    </view>
+                                </view>
+                                <view class="secondsIntroduction">
+                                    <view>{{secondItem.goodsBrief}}</view>
+                                </view>
+                            </view>
+                            <view class="secondsShopMore" wx:if="{{secondindex >0}}" data-goodsId="{{secondItem.goodsInfo.goodsId}}" catchtap="goShop">
+                                <view class="sell_out" wx:if='{{secondItem.goodsInfo.stock < secondItem.goodsInfo.startNum}}'>
+                                    <image class="" src="{{soldOutImg}}" />
+                                </view>
+                                <image class="" src="{{secondItem.goodsInfo.thumb}}" />
+                                <view class="discount">立省{{secondItem.goodsInfo.savePrice}}元</view>
+                                <view class="goodsName">{{secondItem.goodsInfo.goodsName}}</view>
+                                <view class="secondsMorePrice">
+                                    <view class="">
+                                        <view class="secondPrice">
+                                            {{secondItem.goodsInfo.goodsPrice}}
+                                        </view>
+                                        <view class="secondPrices">
+                                            ￥{{secondItem.goodsInfo.marketPrice}}
+                                        </view>
+                                    </view>
+                                    <view class="secondsMoreSec">秒</view>
+                                </view>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+                <!-- 特卖 -->
+                <view class="saleWrap temai" wx:if="{{item.type==5}}" style=" background: {{item.bgColor}};">
+                    <c-titleContent data="{{item}}"></c-titleContent>
+                    <view class="saleList">
+                        <c-saleComponents actPageList="{{item.actPageList}}" wx:if="{{actPageTimesTwo}}"></c-saleComponents>
+                    </view>
+                </view>
+                <!-- 巨划算/套餐/满赠 -->
+                <view wx:if="{{item.type==6 || item.type==7 || item.type==8}}">
+                    <c-activityList dataItem="{{item}}" type="activity"></c-activityList>
+                </view>
+                <!-- 广告位 -->
+                <view wx:if="{{item.type==2}}" class="adsBox" style=" background: {{item.bgColor}};">
+                    <c-titleContent data="{{item}}"></c-titleContent>
+                    <view class="advertising">
+                        <block wx:for="{{item.adList}}" wx:for-item="adListItem" wx:for-index="adListIndex" wx:key="{{adListIndex}}">
+                            <image class="advertisingImg" src="{{adListItem.adUrl}}" data-adLink='{{adListItem.adLink}}' bindtap='handleJump' style="width: {{adListItem.adWidth}}rpx" mode="widthFix" />
+                        </block>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <view class=""></view>
+        <view class="likeWrap" wx:if="{{allGoods.isChecked}}">
+            <c-titleContent data="{{allGoods}}"></c-titleContent>
+            <view class="likeList">
+                <block wx:for="{{goodsListLive}}" wx:for-item='goodsList' wx:for-index='listIndex' wx:key="{{listIndex}}">
+                    <goodlsListTwo_col class="list" goodsList="{{goodsList}}" bindevokeAddCart='onevokeAddCart'></goodlsListTwo_col>
+                </block>
+            </view>
+            <view style='display:flex;justify-content:center;margin-top:-20rpx;'>
+                <image wx:if='{{isLoading}}' style='width:100rpx;height:100rpx;margin:0 auto;' src='/images/bottomLoading.gif' />
+            </view>
+        </view>
+    </view>
+    <view class="navigation_button" catchtap="allremind" wx:if='{{isActTime}}'>
+        <image src="/images/navigation_tag.png" />
+    </view>
+    <popupWindow kind='acticityGuize' titleText="{{guideText}}" ruleText="{{articleContent}}" wx:if="{{isRemindShow}}" bindmyshow='onMyshow'></popupWindow>
+    <c-remind_right id="remind_right" isPageId="{{isPageId}}" menus="{{moduleList}}" autoJump='{{false}}' bindallPreferential='onallPreferential' bindupMenus='handleMenus' wx:if="{{isShowNavigation}}" title='膜法保湿节会场直达'></c-remind_right>
+    <c-shopba kind='addCart' wx:if='{{isPopCart}}' shbpbaWrapHeight='999' shbpbaListHeight='444' goodsId='{{addGoodsId}}' catchtouchmove='true' goodsList='{{addGoodslist}}' id="addCart" bindhideCart="onhideCart"></c-shopba>
+    <i-toast id="toast" />
+    <c-navigationToolsTwo toTheTop="{{toTheTop}}" catchtoUpImgs="ontoUpImgs" />
+    <c-navigationTools totalCount='{{totalCounts}}' />
+</view>

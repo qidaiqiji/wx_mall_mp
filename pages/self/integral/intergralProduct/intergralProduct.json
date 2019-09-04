@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "商品详情",
+  "navigationStyle":"custom",
+  "usingComponents": {
+    "pro_swiper": "../../../components/product_b/pro_swiper/index",
+    "reachTheBottom":"../../../components/reachTheBottom/index",
+    "pro_send": "../../../components/product_b/pro_send/index",
+    "c-navigationTools": "/components/navigationTools/index",
+    "c-navigationToolsTwo":"/components/navigationToolsTwo/index",
+    "Integralshopping": "../../../components/Integralshopping/index"
+  }
+}

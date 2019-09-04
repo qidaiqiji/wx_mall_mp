@@ -1,0 +1,11 @@
+<!-- components/titleContent/index.js.wxml -->
+<view class="titleImg" wx:if="{{data.titleImgUrl.length !=0}}" data-link='{{data.titleImgLink}}' bindtap='handleTitleJump'>
+    <image class="" src="{{data.titleImgUrl}}" />
+    <view class="countDown" wx:if="{{flashSaleDate.length>0}}">
+        <c-countDown kind="moisturizeFlashSale" mytimes="{{flashSaleDate}}"></c-countDown>
+    </view>
+</view>
+<view class="titleTxtWrap" wx:if="{{data.titleImgUrl.length ==0&&data.isShowTitle==1}}">
+    <view class="title">{{data.title}}</view>
+    <view class="subTitle">{{data.subTitle}}</view>
+</view>

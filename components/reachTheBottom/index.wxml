@@ -1,0 +1,5 @@
+<view class="showListWrap_T_three_wrap_zero">
+    <view class="showListWrap_T_three_wrap {{isBgWhite?'showWhite':''}}">
+        <view class="showListWrap_t">{{reachTheBottom}}</view>
+    </view>
+</view>

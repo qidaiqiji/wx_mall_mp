@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "下载",
+  "usingComponents": {
+    "i-toast": "/dist/toast/index"
+  }
+}

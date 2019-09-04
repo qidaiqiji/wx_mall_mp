@@ -1,0 +1,75 @@
+/* components/countDown/index.wxss */
+image {
+    vertical-align: top;
+}
+
+.countDownOne {
+    display: flex;
+    align-items: center;
+    height: 24rpx;
+}
+
+.flashSaleTime {
+    height: 24rpx;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 4rpx;
+    font-size: 18rpx;
+    font-family: MicrosoftYaHei-Bold;
+    font-weight: bold;
+    color: rgba(47, 58, 64, 1);
+    padding: 4rpx;
+    line-height: 18rpx;
+}
+
+.flashSaleTxt {
+    height: 18rpx;
+    font-size: 18rpx;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(254, 254, 254, 1);
+    margin: 0rpx 4rpx;
+    line-height: 18rpx;
+}
+.flashSaleImg {
+    width: 30rpx;
+    height: 30rpx;
+    font-family: MicrosoftYaHei-Bold;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 1);
+}
+.homeFlashSale{
+    height: 32rpx;
+    line-height: 32rpx;
+    background:rgba(255,51,102,1);
+    border-radius:4rpx;
+    font-size:24rpx;
+    font-family:PingFang SC;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    line-height:32rpx;
+    padding: 0 4rpx;
+}
+.flashDot{
+    color: #FF3366;
+    font-size: 28rpx;
+}
+
+.priceTime {
+    background: rgba(47, 58, 64, 1);
+    border-radius: 4rpx;
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    line-height: 24rpx;
+    padding: 4rpx 6rpx;
+}
+
+.priceTxt {
+    font-size: 20rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(47, 58, 64, 1);
+    line-height: 20rpx;
+    padding: 0rpx 4rpx;
+}

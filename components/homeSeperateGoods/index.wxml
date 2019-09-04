@@ -1,0 +1,27 @@
+<!-- <view class='p_goods_box'> -->
+  <view class='p_goods_item'>
+    <view class='p_goods_item_wrap'>
+      <view class='p_goods_head'>
+        <view class='head_title'>{{title}}</view>
+        <view></view>
+        <view class='p_sub_title' style="color:{{subTitleColor}}" wx:if="{{subType=='text'}}">{{data.desc}}</view>
+        <c-countDown wx:else="{{subType=='date'}}" mytimes="{{data.date}}" kind='homeMiaosha'></c-countDown>
+      </view>
+      <view class='p_img_wrap'>
+        <view class='img_swip_wrap'>
+          <swiper circular autoplay="{{isAutoplay}}" class='swipper' interval="3000">
+            <block wx:for="{{data.goods}}" wx:key="{{index}}">
+              <swiper-item wx:if="{{index!=data.goods.length-1}}">
+                <image src="{{item.img}}"/>
+              </swiper-item>
+            </block>
+          </swiper>
+        </view>
+        <view class='img_fixed'>
+          <!-- {{data.goods[data.goods.length-1].img}} -->
+          <image src="{{data.goods[data.goods.length-1].img}}"/>
+        </view>
+      </view>
+    </view>
+  </view>
+<!-- // </view> -->

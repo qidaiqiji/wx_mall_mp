@@ -1,0 +1,51 @@
+/* components/homeSeperateGoods/index.wxss */
+
+.p_goods_item {
+  width: 100%;
+}
+.p_goods_item_wrap {
+  padding: 20rpx;
+}
+.p_goods_head {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 26rpx;
+  display: flex;
+  align-items: center;
+}
+.head_title {
+  font-size: 32rpx;
+  color: #2f3a40;
+  font-weight: 500;
+  font-family: PingFangSC-Medium;
+  margin-right: 16rpx;
+}
+.p_sub_title {
+  flex: 1;
+  height: 22rpx;
+  line-height: 22rpx;
+  font-size: 22rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.p_img_wrap {
+  width: 100%;
+  display: flex;
+}
+.img_swip_wrap{
+  width: 120rpx;
+  height: 120rpx;
+  /* background: yellow; */
+  margin-right: 32rpx;
+}
+.swipper, .img_fixed{
+  width: 120rpx;
+  height: 120rpx;
+}
+.swipper image, .img_fixed image{
+  width: 100%;
+  height: 100%;
+}

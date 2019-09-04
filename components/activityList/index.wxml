@@ -1,0 +1,26 @@
+<!-- components/activityList/index.wxml -->
+<view class="giantPackageGift">
+    <view class="listWrap" style="background: {{dataItem.bgColor}}">
+        <c-titleContent data="{{dataItem}}" flashSaleDate="{{flashSaleDate}}"></c-titleContent>
+        <block wx:for="{{dataItem.goodsList}}" wx:for-index="activityIndex" wx:key="{{activityIndex}}">
+            <view class="listShopWrap" data-goodsId='{{item.goodsInfo.goodsId}}' catchtap="goPrice">
+                <view class="listThum" style="background-image: url({{item.goodsInfo.thumb}})">
+                    <view>热销:{{item.goodsInfo.salesCount}}</view>
+                </view>
+                <!-- <view class="sell_out" wx:if='{{item.goodsInfo.stock < item.goodsInfo.startNum}}'> -->
+                <view class="sell_out" wx:if='{{item.goodsInfo.stock < item.goodsInfo.startNum}}'>
+                    <image class="" src="{{soldOutImg}}" />
+                </view>
+                <view class="listName">{{item.goodsInfo.goodsName}}</view>
+                <view class="listPriceDesc">{{item.goodsBrief||item.pkgDesc}}</view>
+                <view class="listPriceWrap">
+                    <view class="alistPriceWrap">
+                        <view class='listPrice'>{{item.objectPrice.numInt}}.</view>
+                        <view class='listPriceFloor'>{{item.objectPrice.decimal}}</view>
+                    </view>
+                    <view class="listSec">￥{{item.goodsInfo.marketPrice}}</view>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>

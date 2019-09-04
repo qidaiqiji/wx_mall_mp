@@ -1,0 +1,16 @@
+
+var omit = function(text, length){
+
+  
+  if(!text){
+    return ''
+  }
+
+  var short = text.title.substring(0, length)
+
+  return short + '...'
+}
+
+module.exports = {
+  omit:omit
+}

@@ -1,0 +1,52 @@
+<!-- pages/goods/goDownload/goDownload.wxml -->
+<view>
+    <!-- 文字 -->
+    <view class="downloadTxtWrap">
+        <!-- 标题 -->
+        <view class="">
+            <view class="titleWrap">
+                <view class="title">商品标题</view>
+                <view class="copy" catchtap='copyText' data-text="{{title}}">复制</view>
+            </view>
+            <view class="desc">{{title}}</view>
+        </view>
+        <!-- 买点 -->
+        <view class="downloadBorder" wx:if="{{desc !='undefined'}}"></view>
+        <view class="" wx:if="{{desc!='undefined'}}">
+            <view class="titleWrap">
+                <view class="title">商品卖点</view>
+                <view class="copy" catchtap='copyText' data-text="{{desc}}">复制</view>
+            </view>
+            <view class="desc">{{desc}}</view>
+        </view>
+    </view>
+    <!-- 图片 -->
+    <view class="downloadImgWrap">
+        <view class="titleWrap">
+            <view class="title">商品图</view>
+            <view class="copy" catchtap="isAll">{{isBoolean?'全不选':'全选'}}</view>
+        </view>
+        <view class="downloadImg">
+            <block wx:for="{{arr}}" wx:key="{{index}}">
+                <view class="{{item.isSelect?'isSelectBorder':''}}" data-index='{{index}}' data-isSelect="{{item.isSelect}}" catchtap='goSelect'>
+                    <image class="downloadThumb" src="{{item.src}}" />
+                    <image class="isSelect" src="{{item.isSelect?'/images/secleted.png':'/images/unsecletd.png'}}" />
+                </view>
+            </block>
+        </view>
+    </view>
+    
+    <view class="immediately" style="background:{{isBackgroundColor?'#FF3366':'#FF8CAC'}}" catchtap='goDownloadSaveFiles'>
+        立即下载
+    </view>
+</view>
+<i-toast id="toast" />
+<view class="mack" wx:if="{{isSettingShow}}" ></view>
+<view class="modal_wrap" catchtap='isConfirm' wx:if="{{isSettingShow}}">
+    <view class="modal_top">提示</view>
+    <view class="modal_conter">下载资源，需要获取您的“相册”</view>
+    <view class="modal_bottom">
+        <view class="modal_bottom_left" catchtap="isConfirm">取消</view>
+        <button class="modal_bottom_right bottom_right" open-type="openSetting" bindopensetting="callback">去设置</button>
+    </view>
+</view>

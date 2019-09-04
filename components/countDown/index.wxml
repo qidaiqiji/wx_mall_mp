@@ -1,0 +1,36 @@
+<!-- components/countDown/index.wxml -->
+<view class="countDownOne" wx:if="{{kind=='moisturizeFlashSale'}}">
+    <view class="flashSaleTime">{{day}}</view>
+    <view class="flashSaleTxt">天</view>
+    <view class="flashSaleTime">{{hours}}</view>
+    <view class="flashSaleTxt">时</view>
+    <view class="flashSaleTime">{{minutes}}</view>
+    <view class="flashSaleTxt">分</view>
+    <view class="flashSaleTime">{{seconds}}</view>
+    <view class="flashSaleTxt">秒</view>
+    <image class="flashSaleImg" src="/images/countdow.gif" />
+</view>
+<view class="countDownOne" wx:if="{{kind=='homeMiaosha'}}">
+    <view class="homeFlashSale">{{totalHours}}</view>
+    <view class="flashDot"> : </view>
+    <view class="homeFlashSale">{{minutes}}</view>
+    <view class="flashDot"> : </view>
+    <view class="homeFlashSale">{{seconds}}</view>
+</view>
+<!-- 商品详情 -->
+<view class="countDownOne" wx:if="{{kind=='dayHoursMinutes'}}">
+    <view class="priceTime">{{day}}</view>
+    <view class="priceTxt">天</view>
+    <view class="priceTime">{{hours}}</view>
+    <view class="priceTxt">时</view>
+    <view class="priceTime">{{minutes}}</view>
+    <view class="priceTxt">分</view>
+</view>
+<view class="countDownOne" wx:if="{{kind=='hoursMinutesSeconds'}}">
+    <view class="priceTime">{{dayHours}}</view>
+    <view class="priceTxt">时</view>
+    <view class="priceTime">{{minutes}}</view>
+    <view class="priceTxt">分</view>
+    <view class="priceTime">{{seconds}}</view>
+    <view class="priceTxt">秒</view>
+</view>

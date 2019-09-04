@@ -1,0 +1,77 @@
+<!-- pages/integral/intergralProduct/intergralProduct.wxml -->
+<view class="product">
+  <view class="isSavigationStyle_">
+    <view class="empty_custom_" style="height:{{statusBarHeight}}rpx;"></view>
+    <view class="isSavigationStyle">
+      <view class=" empty_custom" catchtap='goPreviousPage'>
+        <image class="viewLeft" src="/images/btn.png" />
+      </view>
+      <view class="savigationTxt" wx:if="{{toTheTop}}">
+        <view data-index='1' catchtap='handleClick'>
+          <view class="{{savigationNum==1?'savigationTxt_':'savigationTxt'}}">商品</view>
+          <view class="{{savigationNum==1?'savigationBorder_':'savigationBorder'}}"></view>
+        </view>
+        <view data-index='2' catchtap='handleClick'>
+          <view class="{{savigationNum==2?'savigationTxt_':'savigationTxt'}}">详情</view>
+          <view class="{{savigationNum==2?'savigationBorder_':'savigationBorder'}}"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 轮播 -->
+  <view>
+    <pro_swiper gallery="{{gallery}}" lastOrderInfo="{{lastOrderInfo}}"></pro_swiper>
+  </view>
+  <!-- 积分兑换 -->
+  <view class="priceWrap">
+    <!-- 直发 -->
+    <view class="">
+      <view class="priceWrap_">
+        <view class="marketPriceWrap">
+          <view class="price">
+            <view>1500</view>
+            <view>积分</view>
+          </view>
+          <view class="marketPrice">建议零售价{{marketPrice}}</view>
+        </view>
+        <view class="addShare">
+          <view class="addImg" catchtap='goDownload'>
+            <image class="" src="/images/icon_down.png" />
+            <view class="">下载</view>
+          </view>
+          <button class="shareImg" open-type='share'>
+            <image class="" src="/images/icon_share.png" />
+            <view class="">分享</view>
+          </button>
+        </view>
+      </view>
+      <view class="shopName">{{goodsName}}</view>
+    </view>
+    <view class="inventoryWrap">
+      <view>库存{{goodsNumber}}</view>
+      <view>月销{{saleCount}}</view>
+      <view>效期剩余{{expireMonth}}个月</view>
+    </view>
+  </view>
+  <view>
+    <pro_send attributes="{{attributes}}"></pro_send>
+  </view>
+  <!-- 图文详情 -->
+  <view class="centralAD" id="details">
+    <block wx:for="{{midAd}}" wx:for-item="midAd" wx:for-index="midAdIn" wx:key="{{midAdIn}}">
+      <image src="{{midAd.img}}" data-url="{{midAd.url}}" catchtap='midad' />
+    </block>
+  </view>
+  <view id="detailsTxt" wx:if="{{goodsDesc}}">
+    <block wx:for="{{goodsDesc}}" wx:for-item="pro_brand_img" wx:for-index="pro_brand_imgi" wx:key="{{pro_brand_imgi}}" wx:if="{{goodsDesc}}">
+      <image class="detailsImg" src="{{pro_brand_img}}" mode="widthFix"></image>
+    </block>
+  </view>
+  <reachTheBottom></reachTheBottom>
+  <!-- 底部 -->
+  <view id="bottom"></view>
+  <view class="bottom" catchtap='shopadd'>立即兑换</view>
+</view>
+<Integralshopping class="Integralshopping" balance="{{balance}}" addCartList="{{addCartList}}" marketPrice="{{marketPrice}}"></Integralshopping>
+<c-navigationTools isBottom='118' />
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" bottomToTheTop='118' catchtoUpImgs="ontoUpImgs" />

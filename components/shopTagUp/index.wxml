@@ -1,0 +1,64 @@
+<!-- components/shopTagUp/index.wxml -->
+<import src="/utils/wxParse/wxParse.wxml" />
+<!-- 底部 -->
+<view class='Mask' catchtap='onConfirm' catchtouchmove='move'></view>
+<!-- 规则 -->
+<view class="shopTagUp_content" catchtouchmove='move' wx:if="{{kide=='ViewRules'}}">
+    <view class="shopTagUp_conter">
+        <view class='shopTagUp_title'>活动规则</view>
+        <scroll-view class="shopTagUpScroll" scroll-y style="height: 780rpx;">
+            <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+        </scroll-view>
+    </view>
+    <view class='shopTagUp_bottom' bindtap='onConfirm'>确定</view>
+</view>
+<!-- 领卷 -->
+<view class=" {{modalName?'shopTagUpContent_':'shopTagUpContent'}}" catchtouchmove='move' wx:if="{{kide=='coupon'}}">
+    <view class='shopTagUp_title'>活动专享</view>
+    <scroll-view scroll-y style="height: 728rpx;width: 100%;">
+        <c-coupon couponList='{{couponList}}' bindchangeType='onchangeType' bindgetCouponList='ongetCouponList' semicircleBg='{{true}}' />
+    </scroll-view>
+    <view class='shopTagUp_tip'>除秒杀、巨划算、满减、套餐、直降等活动外可用</view>
+    <view class='shopTagUp_bottom' bindtap='onConfirm'>确定</view>
+</view>
+<!-- 活动 -->
+<view class=" {{modalName?'shopTagUpContent_':'shopTagUpContent'}}" catchtouchmove='move' wx:if="{{kide=='activity'}}">
+    <view class='tagUpActivityTitle'>
+        <view class="">活动</view>
+        <view class="shopTagUpHide" catchtap='onConfirm'>
+            <image src="/images/icon_close_.png"  ></image>
+        </view>
+    </view>
+    <view class="tagUpActivityConter">
+        <scroll-view scroll-y style="height: 766rpx;width: 100%;">
+            <block wx:for="{{isEventList}}" wx:for-item="list" wx:key="{{index}}">
+                <view class="shopTagUpTag">
+                    <view class="shopTagUpTagImg">
+                        <view>{{list.tag}}</view>
+                        <view>{{list.desc}}</view>
+                    </view>
+                    <block wx:for="{{list.goodsList}}" wx:for-item="goodsItem" wx:for-index="goodsIndex" wx:key="{{goodsIndex}}">
+                        <view class="shopTagUpList" data-tag="{{list.tag}}" data-goodsId="{{goodsItem.goodsId}}" catchtap='goshop'>
+                            <view>
+                                <image src="{{goodsItem.thumb}}"></image>
+                                <view class="shopTagUpTagDesc">{{goodsItem.goodsName}}</view>
+                            </view>
+                            <view class="shopTagUpTagPrice">￥{{goodsItem.price}}</view>
+                        </view>
+                    </block>
+                    <view class="shopTagUpTagSolid" wx:if="{{list.goodsList.length >1}}"></view>
+                </view>
+                <!-- 满减 -->
+                <view class="tagUpTagFullReduction" wx:if="{{list.tag=='满减'}}">
+                    <view>
+                        <view class="tagUpTagFullReduction_">满减</view>
+                    </view>
+                    <view class="">
+                        
+                    </view>
+                </view>
+            </block>
+        </scroll-view>
+    </view>
+    <view class='shopTagUp_bottom' bindtap='onConfirm'>确定</view>
+</view>

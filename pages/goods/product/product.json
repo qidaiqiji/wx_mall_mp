@@ -1,0 +1,20 @@
+{
+  "navigationBarTitleText": "商品详情",
+  "navigationStyle":"custom",
+  "usingComponents": {
+    "c-swiper": "/components/product_b/pro_swiper/index",
+    "c-send": "/components/product_b/pro_send/index",
+    "c-txtInfo": "/components/product_b/txtInfo/index",
+    "c-reachTheBottom":"/components/reachTheBottom/index",
+    "c-brand": "/components/product_b/pro_brand/index",
+    "c-bottom": "/components/product_b/pro_bottom/index",
+    "c-spellGroupList": "/components/spellGroupList/index" ,
+    "c-shopba": "/components/product_b/shopba/index",
+    "c-navigationToolsTwo":"/components/navigationToolsTwo/index",
+    "c-countDown":"/components/countDown/index",
+    "shopTagUp":"/components/shopTagUp/index",
+    "package_details": "/components/product_b/package_details/index",
+    "c-groupShoppingCart":"/components/groupShoppingCart/index",
+    "i-toast": "/dist/toast/index"
+  }
+}

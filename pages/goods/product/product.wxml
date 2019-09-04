@@ -1,0 +1,289 @@
+<view style="margin-top:{{statusBarHeight}}rpx;">
+  <view class="isSavigationStyle_ {{ navigateHide?'isNavigateHide':''}}">
+    <view class="empty_custom_" style="height:{{statusBarHeight}}rpx;"></view>
+    <view class="isSavigationStyle">
+      <view class="empty_custom {{videoBoolern?'':'empty_custom_back'}}" catchtap='goPreviousPage'>
+        <image class="viewLeft" src="/images/btn.png" />
+      </view>
+      <view class="savigationTxt" wx:if="{{navigateHide}}">
+        <view data-index='1' catchtap='handleClick'>
+          <view class="{{savigationNum==1?'savigationTxt_':'savigationTxt'}}">商品</view>
+          <view class="{{savigationNum==1?'savigationBorder_':'savigationBorder'}}"></view>
+        </view>
+        <view data-index='2' catchtap='handleClick'>
+          <view class="{{savigationNum==2?'savigationTxt_':'savigationTxt'}}">详情</view>
+          <view class="{{savigationNum==2?'savigationBorder_':'savigationBorder'}}"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 轮播 -->
+  <view class="">
+    <c-swiper gallery="{{gallery}}" videoFace="{{videoFace}}" video="{{video}}" lastOrderInfo="{{lastOrderInfo}}" bindchangeVideo='onChangeVideo' />
+  </view>
+  <!-- 价格 -->
+  <view class="priceWrap">
+    <view class="activityWrap" wx:if="{{mystatus!=8}}">
+      <view class="activityImage" style="background-image:url({{activitiesUndertaken}})">
+        <view class="activityPrice" wx:if="{{mystatus!=1}}">
+          <view class="activityprice_">
+            <view class="priceInt">{{objectPrice.numInt}}</view>
+            <view class="priceFloat">. {{objectPrice.decimal}}</view>
+          </view>
+          <view wx:if="{{mystatus!=7&&mystatus!=6}}">
+            <view class="discount">{{startNum}}{{unit}}起批</view>
+            <view class="save_price {{mystatus==3||mystatus==2?'colorRed':mystatus==5?'colorBlue':mystatus==4?'colorPreheating':''}}">
+              省￥{{savePrice}}
+            </view>
+          </view>
+          <view wx:if="{{mystatus==7||mystatus==6}}">
+            <view class="discount">{{groupShoppingInfo.fullNum}}人团</view>
+            <view class="save_price {{mystatus==7?'colorWhitr':mystatus==6?'colorGreen':''}}">
+              省￥{{savePrice}}
+            </view>
+          </view>
+        </view>
+        <!-- vip -->
+        <view class="activityPrice" wx:if="{{mystatus==1}}">
+          <view class="activityprice_ vip">
+            <view class="priceInt">{{objectPrice.numInt}}</view>
+            <view class="priceFloat">. {{objectPrice.decimal}}</view>
+          </view>
+          <view class="">
+            <view class="discount">省￥{{savePrice}}</view>
+            <view class="save_price_vip">平台价{{shopPrice}}</view>
+          </view>
+        </view>
+        <!-- 秒杀 -->
+        <view class="activityPriceRight" wx:if="{{mystatus==2}}">
+          <view class="flashDate">秒杀倒计时</view>
+          <view class="activityData">
+            <c-countDown mytimes="{{activityTime}}" kind='dayHoursMinutes' wx:if="{{productTimesHide}}" />
+          </view>
+        </view>
+        <!-- 巨划算· -->
+        <view class="activityPriceRight" wx:if="{{mystatus==3}}">
+          <view class="flashDate">截止日期</view>
+          <view class="activityData">{{activityEndTime}}</view>
+        </view>
+        <!-- 巨划算预热 -->
+        <view class="activityPriceRight" wx:if="{{mystatus==4}}">
+          <view class="activityData">即将开始</view>
+        </view>
+        <!-- 套餐 -->
+        <view wx:if="{{false}}"></view>
+        <!-- 拼团 -->
+        <view class="activityPriceRight" wx:if="{{mystatus==7}}">
+          <view class="flashDate">拼团倒计时</view>
+          <view class="activityData">
+            <c-countDown mytimes="{{activityTime}}" kind='hoursMinutesSeconds' wx:if="{{productTimesHide}}" />
+          </view>
+        </view>
+        <!-- 拼团预热 -->
+        <view class="activityPriceRight" wx:if="{{mystatus==6}}">
+          <view class="flashDate">距开始还有</view>
+          <view class="activityData">
+            <c-countDown mytimes="{{activityTime}}" kind='hoursMinutesSeconds' wx:if="{{productTimesHide}}" />
+          </view>
+        </view>
+      </view>
+      <view class="activityTitleWrap">
+        <view class="activityTitle">
+          <view class="shopName_">{{goodsName}}</view>
+          <view class="pintuanbuySome_" wx:if="{{goodsBrief}}">{{goodsBrief}}</view>
+        </view>
+        <view class="activityTitleRight">
+          <view class="addShare">
+            <view class="addImg" catchtap='goDownload'>
+              <image class="" src="/images/icon_down.png" />
+              <view class="">下载</view>
+            </view>
+            <button class="shareImg" open-type='share'>
+              <image class="" src="/images/icon_share.png" />
+              <view class="">分享</view>
+            </button>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 普通 -->
+    <view class="" wx:if="{{mystatus==8}}">
+      <view class="priceWrap_">
+        <view class="marketPriceWrap">
+          <view class="priceDiscount">
+            <view class="price">
+              <view>{{objectPrice.numInt}}</view>
+              <view>. {{objectPrice.decimal}}</view>
+            </view>
+            <view class="discount_">{{discount}}折</view>
+          </view>
+          <view class="marketPrice">建议零售价 ￥{{marketPrice}}</view>
+        </view>
+        <view class="addShare">
+          <view class="addImg" catchtap='goDownload'>
+            <image class="" src="/images/icon_down.png" />
+            <view class="">下载</view>
+          </view>
+          <button class="shareImg" open-type='share'>
+            <image class="" src="/images/icon_share.png" />
+            <view class="">分享</view>
+          </button>
+        </view>
+      </view>
+      <view>
+        <view class="shopName">{{goodsName}}商品</view>
+        <view class="buySome_" wx:if="{{goodsBrief}}">{{goodsBrief}}</view>
+      </view>
+    </view>
+    <view class="expectedArrivalTimeText" wx:if="{{expectedArrivalTimeText}}">
+      {{expectedArrivalTimeText}}
+    </view>
+    <view class="inventoryWrap">
+      <view>库存 {{goodsNumber}}</view>
+      <view>月销 {{saleCount}}</view>
+      <view>效期剩余 {{expireMonth}}个月</view>
+    </view>
+  </view>
+  <!-- 活动/规则 -->
+  <view class="activityRules">
+    <view wx:if="{{mystatus==7}}">
+      <view class="priceRules" data-kind="ViewRules" data-isText="{{groupShoppingInfo.ruleText}}" catchtap='shopTagUp'>
+        <view class="ViewRules">
+          <image src="{{iconActivity}}" style="margin-right: 20rpx;width: 80rpx;height: 34rpx;" />
+          <view>查看拼团规则</view>
+        </view>
+        <image src="/images/icon_return.png" style="width: 30rpx;height: 30rpx;" />
+      </view>
+    </view>
+    <view wx:else>
+      <block wx:for="{{activityInfo}}" wx:key="{{index}}">
+        <view class="priceRules" data-kind="ViewRules" data-isText="{{item.desc}}" catchtap='shopTagUp' wx:if="{{mystatus==2||mystatus==3?true:false}}">
+          <view class="ViewRules">
+            <image src="{{iconActivity}}" style="margin-right: 20rpx;width: {{mystatus==2?166:mystatus==3||mystatus==4?120:mystatus==7?80:0}}rpx;height: 34rpx;" />
+            <view>{{item.title}}</view>
+          </view>
+          <image src="/images/icon_return.png" style="width: 30rpx;height: 30rpx;" />
+        </view>
+      </block>
+    </view>
+    <block wx:for="{{eventCoupon}}" wx:key="{{index}}">
+      <view class="priceCoupon" data-kind="coupon" catchtap='shopTagUp' wx:if="{{item.couponList.length >0}}">
+        <view class="couponTxt">
+          <view class="couponTitle">领劵</view>
+          <view class="couponImg">
+            <block wx:for="{{item.couponList}}" wx:for-item="couponItem" wx:for-index="couponIndex" wx:key="{{couponIndex}}">
+              <view class="couponWrap">
+                <image class="couponImgOne" src="/images/icon_quan_.png" />
+                <view>{{couponItem.ruleName}}</view>
+                <image class="couponImgTwo" src="/images/icon_quan_.png" />
+              </view>
+            </block>
+          </view>
+        </view>
+        <image src="/images/icon_return.png" style="width: 30rpx;height: 30rpx;" />
+      </view>
+    </block>
+    <view class="activityInfo" catchtap='shopTagUpTwo' wx:if="{{eventActivity.length >0}}">
+      <view class="couponTxt_">
+        <view>活动</view>
+        <view>
+          <block wx:for="{{eventActivity}}" wx:key="{{index}}">
+            <view class="activityList">
+              <block wx:for="{{arr}}" wx:for-item="arr" wx:for-index="arr_in" wx:key="{{arr_in}}">
+                <image style="width:{{arr.width}}rpx;height: {{arr.height}}rpx;" src="{{arr.url}}" wx:if="{{arr.name==item.type}}" />
+              </block>
+              <view class="">{{item.title}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+      <image src="/images/icon_return.png" style="width: 30rpx;height: 30rpx;" />
+    </view>
+  </view>
+  <!-- 拼团 -->
+  <view class="spellWrap">
+    <c-spellGroupList kind='productSpell' groupList='{{groupList}}' addCartList="{{addCartList}}" goodsId="{{goodsId}}" bindevokeAddCart='onGroupCart'></c-spellGroupList>
+    <view class="spellMore" data-kindSpell="spellMore" wx:if="{{groupList.length >2}}" catchtap="isSpellRules">
+      <text>更多拼团</text>
+      <image src="/images/icon_return.png" style="width: 30rpx;height: 30rpx;"></image>
+    </view>
+  </view>
+  <!-- 送至 -->
+  <view class="productSend " id='descs'>
+    <c-send mystatus='{{mystatus}}' defaultShippingProvince="{{defaultShippingProvince}}" skuSizeList="{{skuSizeList}}" shippingInfo="{{shippingInfo}}" expireDate="{{expireDate}}" goodsId="{{goodsId}}" skuNameList="{{skuNameList}}" status="{{status}}" attributes="{{attributes}}" addCartList="{{addCartList}}"></c-send>
+    <view class="shopRankingWrap" wx:if="{{ranking.isTopTen}}">
+      <view class="shopRanking" style="background-image: url({{list}})" data-item='{{ranking}}' catchtap='goRanking'>
+        <view>该商品入选</view>
+        <view>{{ranking.title}}</view>
+        <view class="shopRankingNumber_">TOP</view>
+        <view class="shopRankingNumber_">10</view>
+      </view>
+    </view>
+  </view>
+  <!-- 套餐详情 -->
+  <view>
+    <package_details price="{{price}}" savePrice="{{savePrice}}" pkgList="{{pkgList}}" wx:if="{{pkgList.length}}"></package_details>
+  </view>
+  <!-- 市场/评价/客户 -->
+  <view class="txtInfoWrap" wx:if="{{mystatus!=5}}">
+    <c-txtInfo wx:if="{{mystatus==2?false:true}}" isDaiFa="{{isZhifa?'isZhifa':'isDaiFa'}}" marketSuggest="{{marketSuggest}}" marketComment="{{marketComment}}" feedback="{{feedback}}"></c-txtInfo>
+  </view>
+  <!-- 中腰广告 -->
+  <view class="centralAD" wx:if="{{mystatus!=5&&midAd.length >0}}">
+    <block wx:for="{{midAd}}" wx:for-item="midAd" wx:for-index="midAdIn" wx:key="{{midAdIn}}">
+      <image src="{{midAd.img}}" data-url="{{midAd.url}}" catchtap='midad' />
+    </block>
+  </view>
+  <!-- 品牌 -->
+  <view class="" wx:if="{{mystatus!=5}}">
+    <c-brand mystatus='{{mystatus}}' brand="{{brand}}" linkGoods="{{linkGoods}}" goodsDesc="{{goodsDesc}}"></c-brand>
+  </view>
+  <!-- 品牌图片 -->
+  <view class="goodsDescWrap">
+    <!-- 广告位 -->
+    <view id="details" class="pro_brand_advertising">
+      <image src="/images/the_real_thing.png" catchtap='midad' />
+    </view>
+    <block wx:for="{{goodsDesc}}" wx:for-item="pro_brand_img" wx:for-index="pro_brand_imgi" wx:key="{{pro_brand_imgi}}">
+      <image mode="widthFix" class="goodsDescImg" src="{{pro_brand_img}}" data-imgs="{{goodsDesc}}" data-img="{{pro_brand_img}}" catchtap='isMaxShow'></image>
+    </block>
+  </view>
+  <!-- 常见问题 -->
+  <view class="blemWrap">
+    <view class='blemTitle'>常见问题</view>
+    <view class="productBorder"></view>
+    <view wx:for="{{textbox}}" wx:for-item="title" wx:for-index="title_i" wx:key="{{title_i}}">
+      <view class="blemOne">{{title.title}}</view>
+      <view class="blemTwo">{{title.die}}</view>
+    </view>
+  </view>
+  <!-- 列表 -->
+  <view class="">
+    <view class="product_adviceList" wx:if="{{adviceList.length > 0}}">
+      <c-goodsItem_col bindevokeAddCart='onevokeAddCart' goodsList='{{adviceList}}' noLook='{{noLook?true:false}}' isAccredit='{{isAccredit}}' homeage='homeage' />
+    </view>
+  </view>
+  <view class="produceBottom">
+    <c-bottom bindevokeAddCart='onevokeAddCart' bindgroupShoppingCart='onGroupCart' addCartList="{{addCartList}}" totalCount="{{totalCount}}" mystatus="{{mystatus}}" kind='vip' brandId="{{brand.brandId}}" goodsId='{{goodsId}}' price="{{price}}" actPrice="{{actPrice}}" wx:if="{{isBottom}}"></c-bottom>
+  </view>
+  <c-reachTheBottom></c-reachTheBottom>
+</view>
+<!-- 商品详情更多拼团 -->
+<view class="childMark" catchtouchmove='move' wx:if="{{spellMore}}"></view>
+<view class="childSpellMoreWrap" catchtouchmove='move' wx:if="{{spellMore}}">
+  <view class="childSpellMoretitle">更多拼团</view>
+  <view class="childSpellMoreConter">
+    <scroll-view scroll-y style="height: 560rpx;">
+      <view>
+        <c-spellGroupList groupList='{{groupList}}' addCartList="{{addCartList}}" goodsId='{{goodsId}}' bindevokeAddCart='onGroupCart' kind='details'></c-spellGroupList>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="childSpellMoreConfirm" catchtap="confirmSpell">关闭</view>
+</view>
+<!--  -->
+<c-shopba kind='addCart' groupShopping="{{mystatus==8?'groupShopping':''}}" wx:if='{{isPopCart}}' goodsId='{{addGoodsId}}' catchtouchmove='true' addCartList='{{addGoodslist}}' shbpbaWrapHeight='999' shbpbaListHeight='544' id="addCart" bindhideCart="onhideCart" vip='{{status&&status.isVip}}' isNew="{{isNew}}"></c-shopba>
+<c-navigationToolsTwo toTheTop="{{toTheTop}}" bottomToTheTop="118" catchtoUpImgs="ontoUpImgs" />
+<shopTagUp id="shopTagUp" couponList='{{eventCoupon[0].couponList}}' isEventList="{{isEventList}}" kide="{{isKide}}" desc="{{isDesc}}" wx:if="{{isShopTagUp}}" catchshopTagUp="onshopTagUp"></shopTagUp>
+<c-groupShoppingCart checkoutList="{{checkoutList}}" groupId="{{groupId}}" actGoodsId='{{groupShoppingInfo.actGoodsId}}' bindgroupCartHide='ongroupCartHide' wx:if="{{onGroupCartShow}}" />
+<i-toast id="toast" />

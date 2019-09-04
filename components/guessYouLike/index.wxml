@@ -1,0 +1,68 @@
+<!-- components/guessYouLike/index.wxml -->
+<!-- <block wx:for='{{list}}' wx:key='index'> -->
+<block wx:if='{{item.type == 1}}'>
+  <view class='normal_goods_col goods_col' bindtap="goDetail" data-type="1" data-id="{{item.data.goods.goodsId}}">
+    <view class='n_img_box'>
+      <image src='{{item.data.goods.thumb}}'></image>
+      <view class="sell_out" wx:if='{{item.data.goods.stock < item.data.goods.startNum}}'>
+          <image class="" src="{{soldOutImg}}" />
+      </view>
+      <view class='cover' wx:else>
+        <image src="/images/play.png" mode='widthFix' class='play_top_img' data-echo="./image/icon_vip.png" wx:if="{{item.data.goods.isVideoTag}}"></image>
+        <view class='right-icon'>
+          <image src="{{item.data.goods.showTagMap.new?'/images/img_new.png':item.data.goods.showTagMap.mingxing?'/images/img_hot.png':''}}"></image>
+        </view>
+      </view>
+    </view>
+    <view class='n_info_box'>
+      <view class='noLook' wx:if='{{noLook}}'>认证看价</view>
+      <view wx:if='{{!noLook}}'>
+        <view class='n_price_int n_price'>{{item.data.goods.objectPrice.numInt}}</view>
+        <view class='n_price_float n_price'>.{{item.data.goods.objectPrice.decimal}}</view>
+      </view>
+      <view class='n_sale_num'>近30天销量：{{item.data.goods.salesCount}}</view>
+      <view class='n_desc'>{{item.data.goods.goodsName}}</view>
+      <view class='n_tag_box' wx:if="{{item.data.goods.tagList.length>0}}">
+        <block wx:for="{{item.data.goods.tagList}}" wx:for-item="tag" wx:key="index">
+          <view class='n_tag'>{{tag.text}}</view>
+        </block>
+      </view>
+    </view>
+  </view>
+</block>
+<!-- 专辑布局 -->
+<block wx:if='{{item.type == 2}}'>
+  <view class='collection_goods_col goods_col' bindtap="goDetail" data-type="2" data-id="{{item.data.goodsColl.collId}}">
+    <view class='co_img_box'>
+      <block wx:for='{{item.data.goodsColl.imgList}}' wx:for-item='imgItem' wx:for-index="imgIndex" wx:key="imgIndex">
+        <view class='co_img_item'>
+          <image src='{{imgItem}}' />
+        </view>
+      </block>
+    </view>
+    <view class='co_desc_box' style='background:url({{item.backImg}}) left bottom'>
+      <view class='co_desc brief_desc'>{{item.data.goodsColl.title}}</view>
+      <view class='btn_check'>立即查看</view>
+    </view>
+  </view>
+</block>
+<!-- 发现布局 -->
+<block wx:if='{{item.type == 3}}'>
+  <view class='discover_goods_col goods_col' bindtap="goDetail" data-type="3" data-id="{{item.data.found.foundId}}">
+    <view class='d_img_box'>
+      <image src='{{item.data.found.img}}'></image>
+      <image src="/images/play.png" mode='widthFix' class='play_top_img' data-echo="./image/icon_vip.png" wx:if="{{item.data.found.isVideoTag}}"></image>
+    </view>
+    <view class='fixed_tag'>发现</view>
+    <view class='d_bottom_desc'>
+      <view class='d_desc brief_desc'>{{item.data.found.title}}</view>
+      <view class='d_avator_info'>
+        <view class='avator'>
+          <image src='{{item.data.found.authorImg}}'></image>
+        </view>
+        <view class='avator_name'>{{item.data.found.authorName}}</view>
+      </view>
+    </view>
+  </view>
+</block>
+<!-- </block> -->
